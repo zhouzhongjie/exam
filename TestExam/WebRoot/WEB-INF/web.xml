@@ -9,11 +9,11 @@ http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
 	</welcome-file-list>
 
 	<servlet>
-		<servlet-name>ChatAction</servlet-name>
-		<servlet-class>com.exam.action.ChatAction</servlet-class>
+		<servlet-name>WeixinAction</servlet-name>
+		<servlet-class>com.exam.action.WeixinAction</servlet-class>
 	</servlet>
 	<servlet-mapping>
-		<servlet-name>ChatAction</servlet-name>
+		<servlet-name>WeixinAction</servlet-name>
 		<url-pattern>/wbchat</url-pattern>
 	</servlet-mapping>
 
