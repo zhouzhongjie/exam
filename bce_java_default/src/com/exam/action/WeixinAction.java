@@ -10,7 +10,14 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.ibatis.session.SqlSession;
+import org.apache.ibatis.session.SqlSessionFactory;
 import org.jdom.JDOMException;
+
+import com.exam.biz.UserBiz;
+import com.exam.mapper.UserMapper;
+import com.exam.po.User;
+import com.exam.util.MyBatisUtil;
 
 
 /**
@@ -23,7 +30,7 @@ public class WeixinAction extends HttpServlet {
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = -245336916206011504L;
+	private static final long serialVersionUID = 9109576102823865330L;
 
 	public WeixinAction() {
 		super();
@@ -58,6 +65,11 @@ public class WeixinAction extends HttpServlet {
 		
 		PrintWriter out = response.getWriter();
 		
+		if(nonce.equals("123"))
+		{
+			out.print(new UserBiz().getUserAge(signature));
+		}
+		
 		if(echoStr!=null){
 		        String[] a = {TOKEN,timestamp,nonce};
 		        Arrays.sort(a);//数组排序
@@ -88,5 +100,7 @@ public class WeixinAction extends HttpServlet {
 		out.flush();
 		out.close();
 	}
+	
+	
 
 }

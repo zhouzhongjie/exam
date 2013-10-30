@@ -6,11 +6,18 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
+import org.apache.ibatis.session.SqlSession;
+import org.apache.ibatis.session.SqlSessionFactory;
 import org.jdom.Document;
 import org.jdom.Element;
 import org.jdom.JDOMException;
 import org.jdom.input.SAXBuilder;
 import org.jdom.output.XMLOutputter;
+
+import com.exam.biz.UserBiz;
+import com.exam.mapper.UserMapper;
+import com.exam.po.User;
+import com.exam.util.MyBatisUtil;
 
 /**
  * 微信所有接口入口
@@ -18,6 +25,8 @@ import org.jdom.output.XMLOutputter;
  * 2013-7-26 上午11:01:08
  */
 public class PushManage {
+	
+	
 	
 	public String PushManageXml(InputStream is) throws JDOMException{
 		String returnStr = "";
@@ -71,8 +80,11 @@ public class PushManage {
 				content = "点击 <a target='_blank' href=\'\'>绑定账户</a>";
 			}else if(con.equals("deng")||con.equals("绑定")){
 				content = "好ok";
-			}else if(con.equals("liu")||con.equals("绑定")){
-				content = "谁啊？？";
+			}else if(con.startsWith("age")||con.equals("绑定")){
+				String name = con.substring(3);
+				
+				content = new UserBiz().getUserAge(name);
+				
 			}else if(con.startsWith("ck")||con.startsWith("CK")){
 				String order_id = "0";
 				con.toLowerCase();
@@ -195,4 +207,7 @@ public class PushManage {
 
 		return returnStr;
 	}
+	
+	
+	
 }
