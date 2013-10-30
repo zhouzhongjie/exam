@@ -71,6 +71,8 @@ public class PushManage {
 				content = "点击 <a target='_blank' href=\'\'>绑定账户</a>";
 			}else if(con.equals("deng")||con.equals("绑定")){
 				content = "好ok";
+			}else if(con.equals("liu")||con.equals("绑定")){
+				content = "谁啊？？";
 			}else if(con.startsWith("ck")||con.startsWith("CK")){
 				String order_id = "0";
 				con.toLowerCase();
