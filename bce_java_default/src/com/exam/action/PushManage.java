@@ -99,9 +99,11 @@ public class PushManage {
 					sb.append("订单详情...\n");
 					content = sb.toString();
 				}else{
-					content = "未查询到相应信息,请重新输入！";
+					content = "我不懂，你再解释一下吧!";
 				}
 				
+			}else{
+				content = "我不懂，你再解释一下吧!";
 			}
 		}
 		//以下为自定义按钮事件

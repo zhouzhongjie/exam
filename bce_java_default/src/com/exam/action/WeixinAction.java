@@ -94,7 +94,7 @@ public class WeixinAction extends HttpServlet {
 		                System.out.println("getXml:"+getXml);
 		                out.print(getXml);
 		        } catch (JDOMException e) {
-		                out.print("");
+		                out.print("我不懂，你再解释一下吧!");
 		        }
 		}
 		out.flush();
