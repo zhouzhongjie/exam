@@ -1,0 +1,13 @@
+[core]
+	repositoryformatversion = 0
+	filemode = false
+	logallrefupdates = true
+	autocrlf = false
+	bare = false
+	hideDotFiles = dotGitOnly
+[remote "origin"]
+	url = https://github.com/zhouzhongjie/exam.git
+	fetch = +refs/heads/*:refs/remotes/origin/*
+[branch "master"]
+	remote = origin
+	merge = refs/heads/master
